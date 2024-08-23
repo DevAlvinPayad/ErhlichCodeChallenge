@@ -5,15 +5,15 @@ namespace PizzaWebApi.Models.OrderDetails
     public class OrderDetailsRequest
     {
         [JsonPropertyName("order_details_id")]
-        public int OrderDetaisId { get; set; }
+        public int order_details_id { get; set; }
 
         [JsonPropertyName("order_id")]
-        public int OrderId { get; set; }
+        public int order_id { get; set; }
 
         [JsonPropertyName("pizza_id")]
-        public string PizzaId { get; set; }
+        public string pizza_id { get; set; }
 
         [JsonPropertyName("quantity")]
-        public int Quantity { get; set; }
+        public int quantity { get; set; }
     }
 }
