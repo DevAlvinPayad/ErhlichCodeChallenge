@@ -10,21 +10,17 @@ namespace PizzaWebApi.DataManagement
 {
     public class DataManagementDBContext : DbContext
     {
-        //private readonly IConfiguration _config;
+        private readonly IConfiguration _config;
 
-        //public DataManagementDBContext(IConfiguration config)
-        //{
-        //    _config = config;
-        //}
-        public DataManagementDBContext()
+        public DataManagementDBContext(IConfiguration config)
         {
-          
+            _config = config;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             ConfigurationManager config = new ConfigurationManager();
-            optionsBuilder.UseSqlServer(config.GetConnectionString("PizzaDbConnectionString"));
+            optionsBuilder.UseSqlServer(_config.GetConnectionString("PizzaDbConnectionString"));
         }
 
         public virtual DbSet<PizzaModel> Pizzas { get; set; }

@@ -5,12 +5,12 @@ namespace PizzaWebApi.Models.Orders
     public class OrdersRequest
     {
         [JsonPropertyName("order_id")]
-        public int OrderId { get; set; }
+        public int order_id { get; set; }
 
         [JsonPropertyName("date")]
-        public DateOnly Date { get; set; }
+        public DateOnly date { get; set; }
 
         [JsonPropertyName("time")]        
-        public TimeOnly Time { get; set; }
+        public TimeOnly time { get; set; }
     }
 }

@@ -11,14 +11,15 @@ namespace PizzaWebApi.DataManagement.Pizza
     public class PizzaServices : IPizzaServices
     {
         private readonly DataManagementDBContext _dbContext;
-        public PizzaServices(DataManagementDBContext dbContext) 
+        private readonly IConfiguration _config;
+        public PizzaServices(DataManagementDBContext dbContext, IConfiguration configuration) 
         {
             _dbContext = dbContext;
+            _config = configuration;
         }
 
         public async Task SavePizzasAsync(IEnumerable<PizzaModel> pizzas)
         {
-            await using var context = new DataManagementDBContext();
             //Validate and Retrieve List of Existing record
             var existingPizzas = await _dbContext.Pizzas.Where(p => pizzas.Select(np => np.PizzaId).Contains(p.PizzaId)).ToListAsync();
             var existingPizzaIds = existingPizzas.Select(p => p.PizzaId).ToHashSet();

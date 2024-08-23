@@ -5,12 +5,12 @@ namespace PizzaWebApi.Models.PizzaType
     public class PizzaTypeRequest
     {
         [JsonPropertyName("pizza_type_id")]
-        public string PizzaTypeId { get; set; }
+        public string pizza_type_id { get; set; }
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string name { get; set; }
         [JsonPropertyName("category")]
-        public string Category { get; set; }
+        public string category { get; set; }
         [JsonPropertyName("ingredients")]
-        public string Ingredients { get; set; }
+        public string ingredients { get; set; }
     }
 }
